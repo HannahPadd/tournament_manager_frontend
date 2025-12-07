@@ -25,6 +25,8 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
           </select>
         </div>
         <div>
+          {/*TODO: 
+          Add login prompt*/}
           <p>login</p>
         </div>
       </div>

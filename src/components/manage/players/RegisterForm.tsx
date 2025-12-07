@@ -85,7 +85,7 @@ export default function RegisterForm() {
                 <div>
                     {/*TODO
                         Redirect to player profile page*/}
-                    <button className="bg-lighter text-white p-2 rounded-lg w-full mt-2">Sign up!</button>
+                    <button className="bg-lighter text-white p-2 rounded-lg w-full mt-2"><a href="/">Sign up!</a></button>
                 </div>
             </form>
         </div>

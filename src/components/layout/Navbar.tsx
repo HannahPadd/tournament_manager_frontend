@@ -24,6 +24,9 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
             <option value="Eurocup">Eurocup</option>
           </select>
         </div>
+        <div>
+          <p>login</p>
+        </div>
       </div>
     </nav>
   );

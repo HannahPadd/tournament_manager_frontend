@@ -58,9 +58,9 @@ export default function Rankings() {
   return (
     <div>
       <div className={"flex flex-col gap-2"}>
-        <h2 className={"text-rossoTesto text-2xl"}>Teams ranking</h2>
+        <h2 className={"rankings-title text-2xl"}>Teams ranking</h2>
         <TeamRanking teams={teams} />
-        <h2 className={"text-rossoTesto text-2xl"}>Overall players ranking</h2>
+        <h2 className={"rankings-title text-2xl"}>Overall players ranking</h2>
         <PlayerRanking players={players} />
       </div>
     </div>
@@ -90,7 +90,7 @@ function TeamRanking({ teams }: { teams: Team[] }) {
         <div
           key={team.id}
           className={`flex items-center gap-4 p-4 mb-2 rounded-md ${
-            index % 2 === 0 ? "bg-red-900" : "bg-red-700"
+            index % 2 === 0 ? "rankings-bg-even" : "rankings-bg-odd"
           }`}
           style={{
             borderLeft: `4px solid ${colors[index] || "#ccc"}`,
@@ -141,7 +141,7 @@ function PlayerRanking({ players }: { players: Player[] }) {
         <div
           key={player.id}
           className={`flex items-center gap-4 p-4 mb-2 rounded-md ${
-            index % 2 === 0 ? "bg-red-900" : "bg-red-700"
+            index % 2 === 0 ? "rankings-bg-even" : "rankings-bg-odd"
           }`}
           style={{
             borderLeft: `4px solid ${colors[index] || "white"}`,

@@ -29,12 +29,12 @@ export default function ManagePage() {
 
   return (
     <div>
-      <h1 className="text-3xl text-center text-rossoTesto">
+      <h1 className="text-3xl text-center theme-text">
         Tournament settings
       </h1>
       <div className="flex flex-row justify-center items-center gap-3">
         {apiKey.length === 0 ? (
-          <div className="text-rossoTesto flex flex-row gap-3 items-center font-bold">
+          <div className="theme-text flex flex-row gap-3 items-center font-bold">
             <FontAwesomeIcon icon={faTimesCircle} />
             <span>
               No API key set. Please add it to allow tournament editing.
@@ -57,7 +57,7 @@ export default function ManagePage() {
               localStorage.setItem("apiKey", ak);
             }
           }}
-          className="bg-rossoTesto text-white p-2 rounded-lg"
+          className="bg-lighter text-white p-2 rounded-lg"
         >
           Set API Key
         </button>
@@ -69,7 +69,7 @@ export default function ManagePage() {
               classNames(
                 "py-2 px-4 text-lg",
                 selected
-                  ? "border-b-2 border-rossoTesto font-bold text-rossoTesto"
+                  ? "border-b-2 border-rossoTesto font-bold theme-text"
                   : "text-gray-500",
               )
             }
@@ -81,7 +81,7 @@ export default function ManagePage() {
               classNames(
                 "py-2 px-4 text-lg",
                 selected
-                  ? "border-b-2 border-rossoTesto font-bold text-rossoTesto"
+                  ? "border-b-2 border-rossoTesto font-bold theme-text"
                   : "text-gray-500",
               )
             }
@@ -93,7 +93,7 @@ export default function ManagePage() {
               classNames(
                 "py-2 px-4 text-lg",
                 selected
-                  ? "border-b-2 border-rossoTesto font-bold text-rossoTesto"
+                  ? "border-b-2 border-rossoTesto font-bold theme-text"
                   : "text-gray-500",
               )
             }
@@ -105,7 +105,7 @@ export default function ManagePage() {
               classNames(
                 "py-2 px-4 text-lg",
                 selected
-                  ? "border-b-2 border-rossoTesto font-bold text-rossoTesto"
+                  ? "border-b-2 border-rossoTesto font-bold theme-text"
                   : "text-gray-500",
               )
             }

@@ -47,7 +47,7 @@ export default function MatchesView({
           onCreate={actions.create}
         />
       )}
-      <h1 className="text-center text-3xl text-rossoTesto">{phase?.name}</h1>
+      <h1 className="text-center text-3xl theme-text">{phase?.name}</h1>
       {controls && (
         <div className="mt-2 w-full bg-gray-200 p-2 rounded-lg">
           <button
@@ -64,7 +64,7 @@ export default function MatchesView({
           phase && (
             <div className="pb-20">
               <div>
-                <h3 className="text-3xl text-rossoTesto text-center">Active match:</h3>
+                <h3 className="text-3xl theme-text text-center">Active match:</h3>
                 <MatchTable
                   controls={controls}
                   division={division}
@@ -88,12 +88,12 @@ export default function MatchesView({
           )}
 
         {state.matches.length === 0 && (
-          <p className="text-center text-rossoTesto font-bold">
+          <p className="text-center theme-text font-bold">
             No matches found.
           </p>
         )}
         {showPastMatches && (
-          <h3 className="text-3xl text-rossoTesto  text-center">
+          <h3 className="text-3xl theme-text  text-center">
             Past matches:
           </h3>
         )}

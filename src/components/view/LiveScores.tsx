@@ -91,13 +91,13 @@ export default function LiveScores() {
   return (
     <div className="text-bianco w-auto">
       <div className="flex flex-row gap-3 items-center">
-        <h2 className="text-rossoTesto">
+        <h2 className="theme-text">
           Now playing: {sortedScores[0]?.score.song.split("/")[1]}
         </h2>
         <div>
           <button
             onClick={() => setShowJudgements((prev) => !prev)}
-            className="text-bianco bg-rossoTesto p-0.5 text-xs rounded-md"
+            className="text-bianco bg-lighter p-0.5 text-xs rounded-md"
           >
             {showJudgements ? "Hide" : "Show"} judgements
           </button>

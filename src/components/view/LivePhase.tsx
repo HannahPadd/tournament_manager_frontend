@@ -78,7 +78,7 @@ export default function LivePhase() {
       {!loading && !activeMatch && <p>No match in progress. Stay tuned!</p>}
       {division && phase && activeMatch && (
         <div>
-          <h1 className="text-center text-7xl text-rossoTesto font-bold">
+          <h1 className="text-center text-7xl theme-text font-bold">
             {division.name}
           </h1>
 

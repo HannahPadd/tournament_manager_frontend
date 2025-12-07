@@ -8,12 +8,14 @@ export default function RegisterForm() {
         name: string;
         email: string;
         password: string;
-    }
+        groovestatsApi: string;
+    };
 
     const [formData, setFormData] = useState<SignUpFormState> ({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        groovestatsApi: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,6 +71,20 @@ export default function RegisterForm() {
                 </div>
 
                 <div>
+                    <label htmlFor='groovestatsApi' className="block mb-1">groovestatsApi:</label>
+                    <input
+                        type="groovestatsApi"
+                        name="groovestatsApi"
+                        onChange={handleChange}
+                        value={formData.groovestatsApi}
+                        maxLength={30}
+                        className="w-full p-2 border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
+                <div>
+                    {/*TODO
+                        Redirect to player profile page*/}
                     <button className="bg-lighter text-white p-2 rounded-lg w-full mt-2">Sign up!</button>
                 </div>
             </form>

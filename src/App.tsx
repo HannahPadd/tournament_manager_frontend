@@ -8,7 +8,6 @@ import Navbar from "./components/layout/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SignInPage from "./pages/SignInPage";
-import { AuthProvider } from "./context/AuthProvider";
 
 const themeFiles: Record<string, string> = {
   TagTeam: "/src/themes/TagTeam.css",
@@ -34,7 +33,6 @@ function App() {
   }, [theme]);
 
   return (
-    <AuthProvider>
       <div>
         <Navbar theme={theme} setTheme={setTheme} />
         <ToastContainer />
@@ -49,7 +47,6 @@ function App() {
           </Routes>
         </div>
       </div>
-    </AuthProvider>
   );
 }
 

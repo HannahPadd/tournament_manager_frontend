@@ -1,10 +1,13 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
+import AuthContext from '../context/AuthProvider';
+import { login } from "../services/login.api"
 
 export default function SignIn() {
 
+    const setAuth = useContext(AuthContext) as React.Dispatch<React.SetStateAction<{ user: string; pwd: string; roles: any; accessToken: string }>>;
     const userRef = useRef<HTMLInputElement>(null);
     const errRef = useRef<HTMLDivElement>(null);
-
+setAuth
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -22,9 +25,23 @@ export default function SignIn() {
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+            e.preventDefault();
 
-        
+            try {
+            const response = login({
+                name: user,
+                password: pwd
+            })
+            const accessToken = (await response)?.data.accessToken;
+            const roles = (await response)?.data?.roles;
+
+            setAuth({ user, pwd, roles, accessToken});
+            setUser('');
+            setPwd('');
+            setSuccess(true);
+        } catch(error) {
+            setSuccess(false);
+        }
     }
 
     return (

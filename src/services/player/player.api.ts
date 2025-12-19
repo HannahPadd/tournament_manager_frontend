@@ -12,10 +12,11 @@ export async function createPlayer(request: createPlayerRequest): Promise<Player
     }
 }
 
+
+
 export async function getPlayer(playerId: number) {
     try {
         const response = await axios.get<Player>("players/" + playerId);
-
         return response.data;
     } catch (error) {
         console.error("Error listing player:", error);

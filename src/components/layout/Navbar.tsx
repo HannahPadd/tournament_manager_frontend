@@ -1,3 +1,5 @@
+import Login from "../LoginComponent";
+
 interface NavbarProps {
   theme: string;
   setTheme: (theme: string) => void;
@@ -26,8 +28,9 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
         </div>
         <div>
           {/*TODO: 
-          Add login prompt*/}
-          <p>login</p>
+          Add login prompt*/
+          }
+          <Login />
         </div>
       </div>
     </nav>

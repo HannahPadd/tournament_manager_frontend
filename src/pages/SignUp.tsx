@@ -1,4 +1,4 @@
-import RegisterForm from "../components/manage/players/RegisterForm";
+import RegisterForm from "../components/RegisterComponent";
 
 
 

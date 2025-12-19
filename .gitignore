@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 .vercel
-dev-dist/sw.js
+dev-dist/*

@@ -3,10 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import "./index.css";
 import ViewPage from "./pages/ViewPage";
 import ManagePage from "./pages/ManagePage";
-import SignUpPage from "./pages/SignUp";
+import SignUpPage from "./pages/SignUpPage";
 import Navbar from "./components/layout/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SignInPage from "./pages/SignInPage";
+import { AuthProvider } from "./context/AuthProvider";
 
 const themeFiles: Record<string, string> = {
   TagTeam: "/src/themes/TagTeam.css",
@@ -32,19 +34,22 @@ function App() {
   }, [theme]);
 
   return (
-    <div>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <ToastContainer />
-      <div className="lg:container lg:mx-auto mx-3 mt-3">
-        <Routes>
-          <Route path="/" element={<ViewPage />} />
-          <Route path="/view" element={<ViewPage />} />
-          <Route path="/manage" element={<ManagePage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="*" element={<ViewPage />}></Route>
-        </Routes>
+    <AuthProvider>
+      <div>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <ToastContainer />
+        <div className="lg:container lg:mx-auto mx-3 mt-3">
+          <Routes>
+            <Route path="/" element={<ViewPage />} />
+            <Route path="/view" element={<ViewPage />} />
+            <Route path="/manage" element={<ManagePage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="*" element={<ViewPage />}></Route>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </AuthProvider>
   );
 }
 

@@ -1,5 +1,3 @@
-import Login from "../LoginComponent";
-
 interface NavbarProps {
   theme: string;
   setTheme: (theme: string) => void;
@@ -25,12 +23,6 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
             <option value="TagTeam">TagTeam</option>
             <option value="Eurocup">Eurocup</option>
           </select>
-        </div>
-        <div>
-          {/*TODO: 
-          Add login prompt*/
-          }
-          <Login />
         </div>
       </div>
     </nav>

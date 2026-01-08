@@ -8,7 +8,6 @@ on:
 
 jobs:
   build-and-push:
-  
     runs-on: self-hosted
     permissions:
       contents: read
@@ -24,7 +23,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Set up Docker metadata for viewer
         id: meta_viewer

@@ -1,23 +1,20 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from '../context/AuthProvider';
+import AuthContext from '../context/AuthContext';
 import { login } from "../services/login.api"
+
+const LOGIN_URL = '/auth/login';
 
 export default function SignIn() {
 
-    const setAuth = useContext(AuthContext) as React.Dispatch<React.SetStateAction<{ user: string; pwd: string; roles: any; accessToken: string }>>;
+    const { setAuth } = useContext(AuthContext);
     const userRef = useRef<HTMLInputElement>(null);
     const errRef = useRef<HTMLDivElement>(null);
-setAuth
+
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-    /*
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
-    */
 
     useEffect(() => {
         setErrMsg('');
@@ -27,21 +24,32 @@ setAuth
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
 
-            try {
-            const response = login({
-                name: user,
-                password: pwd
-            })
-            const accessToken = (await response)?.data.accessToken;
-            const roles = (await response)?.data?.roles;
 
-            setAuth({ user, pwd, roles, accessToken});
+            const response = await login({
+                username: user,
+                password: pwd
+            }, LOGIN_URL);
+            const accessToken = response?.data.accessToken;
+            const roles = response?.data?.roles;
+
+            setAuth({ username: user, accessToken: accessToken, roles: roles});
             setUser('');
             setPwd('');
             setSuccess(true);
-        } catch(error) {
-            setSuccess(false);
+/*
+        } catch(err: any) {
+            if(!err?.response) {
+                setErrMsg('No Server response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Unauthorized');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            //errRef?.current.focus();
         }
+            */
     }
 
     return (

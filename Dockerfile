@@ -11,12 +11,11 @@ FROM node:22-alpine3.20 AS build
 WORKDIR /app
 COPY package*.json package-lock.json ./
 RUN npm ci
+COPY ./ ./
 
 RUN --mount=type=secret,id=vite_api_base_url \
     export VITE_API_BASE_URL="$(cat /run/secrets/vite_api_base_url)" && \
-
-COPY ./ ./
-RUN npm run build
+    npm run build
 
 
 ################################

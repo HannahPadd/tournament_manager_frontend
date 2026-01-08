@@ -2,10 +2,13 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from './layout/Navbar';
 
+import TagTeamCss from "../themes/TagTeam.css?url";
+import EurocupCss from "../themes/Eurocup.css?url";
+
 
 const themeFiles: Record<string, string> = {
-  TagTeam: "/src/themes/TagTeam.css",
-  Eurocup: "/src/themes/Eurocup.css",
+  TagTeam: TagTeamCss,
+  Eurocup: EurocupCss,
 };
 
 const Layout= () => {

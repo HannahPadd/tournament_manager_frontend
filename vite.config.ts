@@ -15,12 +15,10 @@ export default defineConfig({
   })],
   preview: {
     host: true,
-    port: 5173
+    port: 5174
   },
   server: {
     port: 5173,
-    host: true,
-    origin: "http://0.0.0.0:5173",
-    allowedHosts: ["manager.itgeurocup.com"]
+    host: "0.0.0.0",
   },
 });

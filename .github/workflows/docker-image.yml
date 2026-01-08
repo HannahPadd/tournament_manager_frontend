@@ -8,8 +8,8 @@ on:
 
 jobs:
   build-and-push:
-  
     runs-on: self-hosted
+    environment: vite_testing
     permissions:
       contents: read
       packages: write
@@ -25,7 +25,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Set up Docker metadata for viewer
         id: meta_viewer
         uses: docker/metadata-action@v5
@@ -39,9 +38,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./
-          secrets: |
-            "vite_api_base_url=${{ secrets.VITE_API_BASE_URL }}"
           file: Dockerfile
           push: true
           tags: ${{ steps.meta_viewer.outputs.tags }}
           labels: ${{ steps.meta_viewer.outputs.labels }}
+          secrets: |
+            vite_api_base_url=${{ secrets.VITE_API_BASE_URL }}

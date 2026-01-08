@@ -9,7 +9,6 @@ export interface Auth {
 interface AuthContextProps {
     auth: Auth | null;
     setAuth: React.Dispatch<React.SetStateAction<Auth | null>>;
-    //accessToken: "";
 }
 
 
@@ -20,7 +19,7 @@ const AuthContext = createContext<AuthContextProps>({
 
 export const AuthProvider = ({ children }: { children?: React.ReactNode}) => {
     const [auth, setAuth] = useState<Auth | null>(null);
-    //const [accessToken, setAccessToken] = useState< 
+    console.log(auth);
 
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>

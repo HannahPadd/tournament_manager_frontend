@@ -2,7 +2,12 @@ import { faLock, faUnlock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './style.css'
 
-export const ToggleButton = ({ isToggled, handleClick }) => {
+interface toggleButtonProps {
+    isToggled: boolean;
+    handleClick: () => any;
+}
+
+export const ToggleButton = ({ isToggled, handleClick } : toggleButtonProps) => {
     return (
         <button
             className='toggle-button'

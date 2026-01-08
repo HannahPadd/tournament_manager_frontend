@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import LogViewer from "./layout/LogViewer";
 import Navbar from './layout/Navbar';
 
 

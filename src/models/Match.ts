@@ -11,4 +11,5 @@ export interface Match {
   multiplier: number;
   players: Player[];
   rounds: Round[];
+  phaseId: number;
 }

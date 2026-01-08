@@ -12,7 +12,8 @@ WORKDIR /app
 COPY package*.json package-lock.json ./
 RUN npm ci
 
-RUN --mount=type=secret,id=vite_api_base_url,env=VITE_API_BASE_URL
+RUN --mount=type=secret,id=vite_api_base_url \
+    export VITE_API_BASE_URL="$(cat /run/secrets/vite_api_base_url)" && \
 
 COPY ./ ./
 RUN npm run build

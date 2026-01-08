@@ -9,8 +9,7 @@ export async function login(request: createLoginRequest, LOGIN_URL: string) {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });
-        console.log(JSON.stringify(response?.data));
-        console.log(JSON.stringify(response));
+
         return response;
 
     } catch (error) {

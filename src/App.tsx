@@ -50,8 +50,9 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
 
-        {/* Protected routes */}
-        <Route element={<RequireAuth />}>
+        { /* Protected routes */ }
+        { /* Admin routes */ }
+        <Route element={<RequireAuth /*allowedRoles={["admin"]} *//>}>
           <Route path="/" element={<ViewPage />} />
           <Route path="manage" element={<ManagePage />} />
         </Route>

@@ -52,7 +52,6 @@ export default function SignIn() {
             } else {
                 setErrMsg('Login Failed');
             }
-            setSuccess(false);
             //errRef?.current.focus();
         }
     }

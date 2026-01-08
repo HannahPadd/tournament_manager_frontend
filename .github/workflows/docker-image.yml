@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-push:
     runs-on: self-hosted
+    environment: vite_testing
     permissions:
       contents: read
       packages: write

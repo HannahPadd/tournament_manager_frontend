@@ -7,15 +7,13 @@
 
 FROM node:22-alpine3.20 AS build
 
-ARG VITE_API_BASE_URL
-ARG VITE_API_KEY
-
-ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
-ENV VITE_API_KEY=$VITE_API_KEY
 
 WORKDIR /app
 COPY package*.json package-lock.json ./
 RUN npm ci
+
+RUN --mount=type=secret,id=vite_api_base_url,env=VITE_API_BASE_URL
+
 COPY ./ ./
 RUN npm run build
 

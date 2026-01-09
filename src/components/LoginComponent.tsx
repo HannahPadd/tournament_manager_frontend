@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { login } from "../services/login.api"
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const LOGIN_URL = '/auth/login';
 
@@ -40,6 +41,16 @@ export default function SignIn() {
             setAuth({ username: user, accessToken: accessToken, roles: roles});
             setUser('');
             setPwd('');
+            console.log(accessToken);
+            //TODO: This is just for testing, this should get removed.
+            const getResponse = await axios.get("auth/profile",
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}` 
+                    }
+                },
+            )
+            console.log(getResponse);
             navigate(from, { replace: true })
 
         } catch(err: any) {

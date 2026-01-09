@@ -25,7 +25,7 @@ export async function getPlayer(playerId: number) {
 }
 
 export async function updatePlayer(playerId: number) {
-
+    return playerId;
 }
 
 export async function deletePlayer(playerId: number) {

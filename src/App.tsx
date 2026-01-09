@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import RequireAuth from "./components/RequireAuth";
@@ -8,35 +7,12 @@ import ViewPage from "./pages/ViewPage";
 import ManagePage from "./pages/ManagePage";
 import SignUpPage from "./pages/SignUpPage";
 import Unauthorized from "./pages/Unauthorized";
-import Navbar from "./components/layout/Navbar";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoginPage from "./pages/LoginPage";
 import Layout from "./components/Layout";
 import Missing from "./pages/Missing";
 
-const themeFiles: Record<string, string> = {
-  TagTeam: "/src/themes/TagTeam.css",
-  Eurocup: "/src/themes/Eurocup.css",
-};
-
 function App() {
-  const [theme, setTheme] = useState("Eurocup");
-
-  useEffect(() => {
-    // Remove previous theme CSS
-    const prev = document.getElementById("theme-css") as HTMLLinkElement;
-    if (prev) prev.remove();
-    // Add new theme CSS
-    const link = document.createElement("link");
-    link.id = "theme-css";
-    link.rel = "stylesheet";
-    link.href = themeFiles[theme] || themeFiles["Eurocup"];
-    document.head.appendChild(link);
-    return () => {
-      link.remove();
-    };
-  }, [theme]);
 
   return (
     <>

@@ -6,7 +6,6 @@ import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icon
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const REGISTER_URL = '/register';
 
 
 export default function RegisterCompontent() {
@@ -28,7 +27,7 @@ export default function RegisterCompontent() {
 
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
+    //const [matchFocus, setMatchFocus] = useState(false);
 
     const [grooveStatsApi, setGrooveStatsApi] = useState('');
     const [validGrooveStatsApi, setValidGrooveStatsApi] = useState(false);
@@ -216,8 +215,8 @@ export default function RegisterCompontent() {
                             required
                             aria-invalid={validMatch ? "false" : "true"}
                             aria-describedby="matchnote"
-                            onFocus={() => setMatchFocus(true)}
-                            onBlur={() => setMatchFocus(false)}
+                            //onFocus={() => setMatchFocus(true)}
+                            //onBlur={() => setMatchFocus(false)}
                         />
                         <p id="matchnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />

@@ -4,11 +4,10 @@ import { CabinetCard } from "./CabinetCard";
 import { ToggleButton } from "./ToggleButton";
 
 
-
 export const CabinetOrganization = () => {
     const [isToggled, setIsToggled] = useState(false);
     
-    const getItems = (count) => Array.from({ length: count }, (v, k) => k).map(k => CabinetCard(k, isToggled));
+    const getItems = (count: number) => Array.from({ length: count }, (k: number) => k).map(k => CabinetCard(k, isToggled));
     
     const [items, setItems] = useState(getItems(8));
 
@@ -18,7 +17,7 @@ export const CabinetOrganization = () => {
 
 
     // a little function to help us with reordering the result
-    const reorder = (list, startIndex, endIndex) => {
+    const reorder = (list: any[], startIndex: number, endIndex: number) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
         result.splice(endIndex, 0, removed);
@@ -28,7 +27,7 @@ export const CabinetOrganization = () => {
 
     const grid = 8;
 
-    const getItemStyle = (isDragging, draggableStyle) => ({
+    const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
         // some basic styles to make the items look a bit nicer
         userSelect: 'none',
         padding: grid * 2,
@@ -41,14 +40,14 @@ export const CabinetOrganization = () => {
         ...draggableStyle,
     });
 
-    const getListStyle = isDraggingOver => ({
+    const getListStyle = (isDraggingOver: boolean) => ({
         background: isDraggingOver ? 'lightblue' : 'lightgrey',
         display: 'flex',
         padding: grid,
         overflow: 'auto',
     });
 
-    const onDragEnd = (result) => {
+    const onDragEnd = (result: any)=> {
         // dropped outside the list
         if (!result.destination) {
             return;

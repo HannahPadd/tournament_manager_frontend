@@ -1,6 +1,6 @@
 
 
-export default function PlayerComponent {
+export default function PlayerComponent() {
 
 
 }

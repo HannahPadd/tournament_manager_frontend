@@ -7,6 +7,8 @@ import ViewPage from "./pages/ViewPage";
 import ManagePage from "./pages/ManagePage";
 import SignUpPage from "./pages/SignUpPage";
 import Unauthorized from "./pages/Unauthorized";
+import AdminPage from "./pages/AdminPage";
+
 import "react-toastify/dist/ReactToastify.css";
 import LoginPage from "./pages/LoginPage";
 import Layout from "./components/Layout";
@@ -31,6 +33,7 @@ function App() {
         <Route element={<RequireAuth /*allowedRoles={["admin"]} *//>}>
           <Route path="/" element={<ViewPage />} />
           <Route path="manage" element={<ManagePage />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
 
         {/* Catch all */}

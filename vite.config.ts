@@ -19,7 +19,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    host: "manager.itgeurocup.com",
-    allowedHosts: ["manager.itgeurocup.com"]
+    host: "0.0.0.0",
+    allowedHosts: ["0.0.0.0"]
   },
 });
